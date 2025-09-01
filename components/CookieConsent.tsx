@@ -4,6 +4,21 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Settings, CheckCircle } from 'lucide-react'
 
+// TypeScript declarations for Google Analytics
+declare global {
+  interface Window {
+    gtag: (
+      command: string,
+      targetId: string,
+      config?: {
+        analytics_storage?: 'granted' | 'denied'
+        ad_storage?: 'granted' | 'denied'
+        functionality_storage?: 'granted' | 'denied'
+      }
+    ) => void
+  }
+}
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false)
   const [showSettings, setShowSettings] = useState(false)

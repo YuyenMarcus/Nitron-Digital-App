@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import Image from 'next/image'
 
 const footerLinks = {
@@ -30,12 +30,6 @@ const footerLinks = {
   ]
 }
 
-const socialLinks = [
-  { name: 'Twitter', icon: Twitter, href: 'https://twitter.com/nitronapp' },
-  { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com/company/nitronapp' },
-  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/nitronapp' },
-    { name: 'GitHub', icon: Github, href: 'https://github.com/nitronapp' }
-]
 
 export default function Footer() {
   return (
@@ -45,10 +39,10 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 40, x: -30 }}
+              whileInView={{ opacity: 1, y: 0, x: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: false, margin: "-50px" }}
             >
               {/* Logo */}
               <div className="mb-6">
@@ -89,38 +83,66 @@ export default function Footer() {
 
           {/* Product Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30, x: 20 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
           >
-            <h3 className="font-semibold text-white mb-4">Product</h3>
+            <motion.h3 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+              viewport={{ once: false }}
+              className="font-semibold text-white mb-4"
+            >
+              Product
+            </motion.h3>
             <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.name}>
+              {footerLinks.product.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  viewport={{ once: false }}
+                >
                   <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
 
           {/* Company Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 30, x: 20 }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+            viewport={{ once: false, margin: "-50px" }}
           >
-            <h3 className="font-semibold text-white mb-4">Company</h3>
+            <motion.h3 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 }}
+              viewport={{ once: false }}
+              className="font-semibold text-white mb-4"
+            >
+              Company
+            </motion.h3>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
+              {footerLinks.company.map((link, index) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  viewport={{ once: false }}
+                >
                   <a href={link.href} className="text-gray-400 hover:text-white transition-colors">
                     {link.name}
                   </a>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -178,20 +200,6 @@ export default function Footer() {
               © 2024 Nitron. All rights reserved.
             </div>
 
-            {/* Social Links */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-200"
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Newsletter Signup */}

@@ -74,14 +74,14 @@ export default function Pricing() {
   }
 
   return (
-    <section className="section-padding bg-gray-50">
+    <section id="pricing" className="section-padding bg-gray-50">
       <div className="container-max">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
@@ -98,7 +98,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="flex justify-center mb-12"
         >
           <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-200">
@@ -129,14 +129,23 @@ export default function Pricing() {
         </motion.div>
 
         {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto items-stretch">
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 60, scale: 0.9, rotateY: 15 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
+              transition={{ 
+                duration: 0.7, 
+                delay: index * 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: false, margin: "-50px", amount: 0.3 }}
+              whileHover={{ 
+                y: plan.popular ? -8 : -12,
+                scale: 1.02,
+                transition: { duration: 0.3 }
+              }}
               className={`relative ${plan.popular ? 'lg:-mt-4' : ''}`}
             >
               {/* Popular Badge */}
@@ -147,7 +156,7 @@ export default function Pricing() {
               )}
 
               {/* Plan Card */}
-              <div className={`card h-full ${plan.popular ? 'ring-2 ring-light-blue-500 shadow-2xl' : ''} ${plan.popular ? 'pt-8' : ''}`}>
+              <div className={`card h-full flex flex-col ${plan.popular ? 'ring-2 ring-light-blue-500 shadow-2xl' : ''} ${plan.popular ? 'pt-8' : ''}`}> 
                 {/* Plan Header */}
                 <div className="text-center mb-8">
                   <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 ${
@@ -176,7 +185,7 @@ export default function Pricing() {
                 </div>
 
                 {/* Features */}
-                <div className="space-y-3 mb-8">
+                <div className="space-y-3 mb-8 flex-1">
                   {plan.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start space-x-3">
                       <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
@@ -186,7 +195,7 @@ export default function Pricing() {
                 </div>
 
                 {/* CTA Button */}
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                <button className={`w-full mt-auto py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
                   plan.popular
                     ? 'btn-accent'
                     : plan.name === 'Free'
@@ -205,7 +214,7 @@ export default function Pricing() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center"
         >
           <h3 className="text-2xl font-bold text-navy-900 mb-8">

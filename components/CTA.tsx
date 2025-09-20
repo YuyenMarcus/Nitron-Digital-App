@@ -53,7 +53,8 @@ export default function CTA() {
               viewport={{ once: false }}
               className="text-xl md:text-2xl text-navy-100 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              Stop juggling multiple apps and manual processes. Start managing your business like a pro with Nitron.
+              Stop juggling multiple apps and manual processes. Start managing your business like a pro with Nitron.{' '}
+              <span className="font-semibold text-white">No monthly fees. Only pay 1% when you get paid.</span>
             </motion.p>
 
             {/* CTA Buttons */}
@@ -136,7 +137,7 @@ export default function CTA() {
               className="mt-16"
             >
               <p className="text-navy-200 mb-6">
-                No credit card required • Start free • Cancel anytime
+                No credit card required • Start free • Only pay when you succeed
               </p>
               <button className="text-light-blue-300 hover:text-light-blue-200 font-semibold text-lg underline underline-offset-4 transition-colors">
                 Learn more about our features →

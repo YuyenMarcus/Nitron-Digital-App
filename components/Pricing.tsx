@@ -1,242 +1,152 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check, Star, Zap, Crown } from 'lucide-react'
-import { useState } from 'react'
-
-const plans = [
-  {
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    monthlyPrice: "$0",
-    annualPrice: "$0",
-    description: "Perfect for getting started",
-    icon: Star,
-    features: [
-      "Up to 5 invoices per month",
-      "Basic automation features",
-      "Google Drive integration",
-      "Email support",
-      "Mobile app access"
-    ],
-    cta: "Get Started Free",
-    popular: false
-  },
-  {
-    name: "Professional",
-    price: "$19",
-    period: "per month",
-    monthlyPrice: "$19",
-    annualPrice: "$180",
-    description: "For growing businesses",
-    icon: Zap,
-    features: [
-      "Unlimited invoices",
-      "Advanced automation",
-      "Slack integration",
-      "Priority support",
-      "Analytics dashboard",
-      "Custom branding",
-      "Team collaboration (up to 3 users)"
-    ],
-    cta: "Start Free Trial",
-    popular: true
-  },
-  {
-    name: "Enterprise",
-    price: "$49",
-    period: "per month",
-    monthlyPrice: "$49",
-    annualPrice: "$468",
-    description: "For established businesses",
-    icon: Crown,
-    features: [
-      "Everything in Professional",
-      "Unlimited team members",
-      "Advanced security features",
-      "API access",
-      "Custom integrations",
-      "Dedicated account manager",
-      "SLA guarantee",
-      "Advanced reporting"
-    ],
-    cta: "Contact Sales",
-    popular: false
-  }
-]
+import { Check, ArrowRight, DollarSign, TrendingUp, Shield } from 'lucide-react'
 
 export default function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(false)
-
-  const togglePricing = () => {
-    setIsAnnual(!isAnnual)
-  }
-
   return (
-    <section id="pricing" className="section-padding bg-gray-50">
+    <section id="pricing" className="section-padding bg-gradient-to-br from-navy-50 via-white to-gray-50">
       <div className="container-max">
-        {/* Section Header */}
+        {/* Main Pricing Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: false }}
-          className="text-center mb-20"
+          className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-            Simple,{' '}
-            <span className="gradient-text">Transparent Pricing</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Start free and scale as you grow. No hidden fees, no surprises. Choose the plan that fits your business needs.
-          </p>
-        </motion.div>
-
-        {/* Pricing Toggle */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: false }}
-          className="flex justify-center mb-12"
-        >
-          <div className="bg-white rounded-2xl p-2 shadow-lg border border-gray-200">
-            <div className="flex items-center space-x-4">
-              <span className={`text-sm font-medium transition-colors duration-200 ${!isAnnual ? 'text-navy-900' : 'text-gray-600'}`}>Monthly</span>
-              <div 
-                className="w-12 h-6 bg-navy-500 rounded-full relative cursor-pointer pricing-toggle"
-                onClick={togglePricing}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault()
-                    togglePricing()
-                  }
-                }}
+          <div className="bg-gradient-to-br from-navy-900 via-navy-800 to-navy-900 text-white rounded-3xl p-12 shadow-2xl relative overflow-hidden">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-10 right-10 w-32 h-32 bg-white rounded-full blur-3xl"></div>
+              <div className="absolute bottom-10 left-10 w-24 h-24 bg-light-blue-500 rounded-full blur-2xl"></div>
+            </div>
+            
+            <div className="relative z-10 text-center">
+              {/* Headline */}
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: false }}
+                className="text-4xl md:text-6xl font-bold mb-8"
               >
-                <div className={`w-4 h-4 bg-white rounded-full absolute top-1 transition-all duration-200 ${
-                  isAnnual ? 'right-1' : 'left-1'
-                }`}></div>
-              </div>
-              <span className={`text-sm font-medium transition-colors duration-200 ${isAnnual ? 'text-navy-900' : 'text-gray-600'}`}>Annual</span>
-              <div className="bg-light-blue-100 text-light-blue-700 text-xs px-3 py-1 rounded-full font-medium">
-                Save 20%
-              </div>
+                Simple & Transparent{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-light-blue-400 to-blue-300">
+                  Pricing
+                </span>
+              </motion.h2>
+
+              {/* Core Proposition - 1% Fee */}
+              <motion.div
+                initial={{ scale: 0.5, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ 
+                  duration: 1, 
+                  type: "spring", 
+                  stiffness: 100,
+                  delay: 0.4
+                }}
+                viewport={{ once: false }}
+                className="my-12"
+              >
+                <div className="text-8xl md:text-9xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-light-blue-400 to-blue-300 mb-4">
+                  1%
+                </div>
+                <p className="text-2xl md:text-3xl font-semibold text-gray-300">
+                  Success Fee
+                </p>
+                <p className="text-lg text-gray-400 mt-2">
+                  Only when you get paid
+                </p>
+              </motion.div>
+
+              {/* Value Proposition */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                viewport={{ once: false }}
+                className="mb-12"
+              >
+                <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto">
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-light-blue-500 rounded-2xl flex items-center justify-center mb-4">
+                      <DollarSign className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">No Monthly Fees</h3>
+                    <p className="text-gray-400 text-center">Start free. No subscriptions, no commitments.</p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-green-500 rounded-2xl flex items-center justify-center mb-4">
+                      <TrendingUp className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">Pay When You Win</h3>
+                    <p className="text-gray-400 text-center">Only pay a small fee when you receive payment.</p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-4">
+                      <Shield className="w-8 h-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-2">No Hidden Costs</h3>
+                    <p className="text-gray-400 text-center">Transparent pricing with no surprises.</p>
+                  </div>
+                </div>
+              </motion.div>
+
+
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 }}
+                viewport={{ once: false }}
+              >
+                <button className="bg-gradient-to-r from-light-blue-500 to-blue-600 hover:from-light-blue-600 hover:to-blue-700 text-white text-xl font-semibold px-12 py-4 rounded-2xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center mx-auto">
+                  Get Started Free
+                  <ArrowRight className="w-6 h-6 ml-2" />
+                </button>
+                <p className="text-gray-400 mt-4 text-sm">
+                  No credit card required • Start earning today
+                </p>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto items-stretch">
-          {plans.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 60, scale: 0.9, rotateY: 15 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1, rotateY: 0 }}
-              transition={{ 
-                duration: 0.7, 
-                delay: index * 0.2,
-                ease: [0.25, 0.46, 0.45, 0.94]
-              }}
-              viewport={{ once: false, margin: "-50px", amount: 0.3 }}
-              whileHover={{ 
-                y: plan.popular ? -8 : -12,
-                scale: 1.02,
-                transition: { duration: 0.3 }
-              }}
-              className={`relative ${plan.popular ? 'lg:-mt-4' : ''}`}
-            >
-              {/* Popular Badge */}
-              {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-light-blue-500 to-light-blue-600 text-white px-6 py-2 rounded-full text-sm font-semibold z-10">
-                  Most Popular
-                </div>
-              )}
-
-              {/* Plan Card */}
-              <div className={`card h-full flex flex-col ${plan.popular ? 'ring-2 ring-light-blue-500 shadow-2xl' : ''} ${plan.popular ? 'pt-8' : ''}`}> 
-                {/* Plan Header */}
-                <div className="text-center mb-8">
-                  <div className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-4 ${
-                    plan.popular ? 'bg-light-blue-100' : 'bg-navy-100'
-                  }`}>
-                    <plan.icon className={`w-8 h-8 ${
-                      plan.popular ? 'text-light-blue-600' : 'text-navy-600'
-                    }`} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-navy-900 mb-2">{plan.name}</h3>
-                  <p className="text-gray-600 mb-4">{plan.description}</p>
-                  <div className="mb-2">
-                    <span className="text-4xl font-bold text-navy-900">
-                      {isAnnual ? plan.annualPrice : plan.monthlyPrice}
-                    </span>
-                    <span className="text-gray-600 ml-2">
-                      /{isAnnual ? 'year' : 'month'}
-                      {isAnnual && <span className="text-xs text-light-blue-600"> (billed annually)</span>}
-                    </span>
-                    {isAnnual && plan.name !== 'Free' && (
-                      <div className="text-sm text-light-blue-600 mt-1">
-                        Save ${parseInt(plan.monthlyPrice.replace('$', '')) * 12 - parseInt(plan.annualPrice.replace('$', ''))} annually
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Features */}
-                <div className="space-y-3 mb-8 flex-1">
-                  {plan.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-start space-x-3">
-                      <Check className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">{feature}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* CTA Button */}
-                <button className={`w-full mt-auto py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
-                  plan.popular
-                    ? 'btn-accent'
-                    : plan.name === 'Free'
-                    ? 'btn-secondary'
-                    : 'btn-primary'
-                }`}>
-                  {plan.cta}
-                </button>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* FAQ Section */}
+        {/* Trust Elements */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: false }}
-          className="text-center"
+          className="mt-20 text-center"
         >
-          <h3 className="text-2xl font-bold text-navy-900 mb-8">
-            Frequently Asked Questions
-          </h3>
-          
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="text-left bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-navy-900 mb-2">Can I change plans anytime?</h4>
-              <p className="text-gray-600 text-sm">Yes, you can upgrade or downgrade your plan at any time. Changes take effect immediately.</p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <Check className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold text-navy-900 mb-2">No Setup Fees</h4>
+              <p className="text-gray-600 text-sm">Start immediately with zero upfront costs</p>
             </div>
-            <div className="text-left bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-navy-900 mb-2">Is there a setup fee?</h4>
-              <p className="text-gray-600 text-sm">No setup fees. You only pay for the plan you choose, starting from $0.</p>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <Check className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold text-navy-900 mb-2">No Contracts</h4>
+              <p className="text-gray-600 text-sm">Cancel anytime with no penalties</p>
             </div>
-            <div className="text-left bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-navy-900 mb-2">What payment methods do you accept?</h4>
-              <p className="text-gray-600 text-sm">We accept all major credit cards, PayPal, and Apple Pay for iOS users.</p>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <Check className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold text-navy-900 mb-2">No Hidden Fees</h4>
+              <p className="text-gray-600 text-sm">What you see is what you pay</p>
             </div>
-            <div className="text-left bg-white rounded-lg p-6 shadow-sm border border-gray-100">
-              <h4 className="font-semibold text-navy-900 mb-2">Do you offer refunds?</h4>
-              <p className="text-gray-600 text-sm">Yes, we offer a 30-day money-back guarantee for all paid plans.</p>
+            
+            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+              <Check className="w-8 h-8 text-green-500 mx-auto mb-3" />
+              <h4 className="font-semibold text-navy-900 mb-2">Instant Payouts</h4>
+              <p className="text-gray-600 text-sm">Receive your money within 24 hours</p>
             </div>
           </div>
         </motion.div>

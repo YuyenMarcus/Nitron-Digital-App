@@ -200,10 +200,11 @@ export default function Features() {
           className="text-center mb-20"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6">
-            Powerful Automations at Your Fingertips
+            Access All Features with{' '}
+            <span className="gradient-text">Simple 1% Success Fee</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From day-to-day tasks to long-term goals, Nitron streamlines your business with intelligent automations.
+            No subscriptions, no monthly fees. Get everything Nitron has to offer and only pay when you succeed.
           </p>
         </motion.div>
 
@@ -339,19 +340,19 @@ export default function Features() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <div className="bg-gradient-to-r from-navy-50 to-light-blue-50 rounded-3xl p-8 md:p-12">
-            <h3 className="text-3xl font-bold text-navy-900 mb-6">
-              Ready to Automate Your Business?
+          <div className="bg-gradient-to-r from-navy-900 to-navy-800 rounded-3xl p-8 md:p-12 text-white">
+            <h3 className="text-3xl font-bold mb-6">
+              Ready to Get Started?
             </h3>
-            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of businesses that have already transformed their workflow with intelligent automation.
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              Access all features with no upfront costs. Only pay 1% when you get paid. No subscriptions, no commitments.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary text-lg px-8 py-4">
-                Start Free Trial
+              <button className="bg-gradient-to-r from-light-blue-500 to-blue-600 hover:from-light-blue-600 hover:to-blue-700 text-white text-lg font-semibold px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300">
+                Get Started Free
               </button>
-              <button className="btn-secondary text-lg px-8 py-4">
-                See All Features
+              <button className="bg-white/10 backdrop-blur-sm border border-white/20 text-white text-lg font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-all duration-300">
+                View Pricing Details
               </button>
             </div>
           </div>

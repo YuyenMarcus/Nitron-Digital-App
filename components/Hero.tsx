@@ -30,10 +30,10 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center px-4 py-2 rounded-full bg-green-100 text-green-700 text-sm font-medium mb-10 border border-green-200"
+              className="inline-flex items-center px-4 py-2 rounded-full bg-light-blue-100 text-light-blue-700 text-sm font-medium mb-10 border border-light-blue-200"
             >
-              <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-              Available on iOS, macOS & watchOS
+              <span className="w-2 h-2 bg-light-blue-500 rounded-full mr-2"></span>
+              Start Free • Only 1% When You Get Paid
             </motion.div>
 
             {/* Main Headline */}
@@ -54,7 +54,7 @@ export default function Hero() {
               className="text-xl md:text-2xl text-gray-600 mb-14 max-w-3xl lg:max-w-none leading-relaxed"
             >
               Effortlessly manage invoices, workflows, and client interactions across all your devices. 
-              Seamlessly sync between iPhone, Mac, and Apple Watch.
+              <span className="font-semibold text-navy-900">No monthly fees. Ever.</span> Only pay when you get paid.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -66,7 +66,7 @@ export default function Hero() {
             >
               <a href="#pricing" className="btn-primary text-lg px-8 py-4 flex items-center group">
                 <Download className="w-5 h-5 mr-2" />
-                Get Started Free
+                Create Your Free Account
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
               

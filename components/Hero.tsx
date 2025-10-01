@@ -54,7 +54,7 @@ export default function Hero() {
               className="text-xl md:text-2xl text-gray-600 mb-14 max-w-3xl lg:max-w-none leading-relaxed"
             >
               Effortlessly manage invoices, workflows, and client interactions across all your devices. 
-              <span className="font-semibold text-navy-900">No monthly fees. Ever.</span> Only pay when you get paid.
+              <span className="font-semibold text-navy-900">No monthly fees. Ever.</span>
             </motion.p>
 
             {/* CTA Buttons */}

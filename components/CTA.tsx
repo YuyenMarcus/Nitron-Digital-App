@@ -137,7 +137,7 @@ export default function CTA() {
               className="mt-16"
             >
               <p className="text-navy-200 mb-6">
-                No credit card required • Start free • Only pay when you succeed
+                No credit card required • Start free
               </p>
               <button className="text-light-blue-300 hover:text-light-blue-200 font-semibold text-lg underline underline-offset-4 transition-colors">
                 Learn more about our features →
